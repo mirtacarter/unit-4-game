@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("assets/images/bg.png");
+}
+
+.mainheading {
+    background-color: white;
+    font-size: "24px";
+
+}
