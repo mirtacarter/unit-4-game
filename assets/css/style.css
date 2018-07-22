@@ -119,10 +119,10 @@ ul {
     margin: 10px auto;
 }
 
-#crystal1,
-#crystal2,
-#crystal3,
-#crystal4 {
+#c1,
+#c2,
+#c3,
+#c4 {
     max-width: 85%;
     padding: 5px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);

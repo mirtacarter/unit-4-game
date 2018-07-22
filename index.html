@@ -18,7 +18,7 @@
 
 <div class="mainbody">
 
-    <!-- Instructions on how to play the game -->
+    <!-- Instructions on how to play the game in a hoverable dropdown -->
     <div class="gameheading"> 
         <div class="dropdown-container">
         <h2>Hover for Instructions</h2>
@@ -34,56 +34,57 @@
         </div>
         </div>
 
-        <!-- Start button -->
+        <!-- Start button will begin game-->
         <div class="start-button">
         <button class="start">Start Game</button>
         </div>
     </div>
 
-    <!-- Random number display -->
+    <!-- Random number will display here once start button is clicked -->
     <div class="random-number-bar">
         <div class="number">
         <span id="number-played"> </span>
         </div>
     </div>
 
-    <!-- Images of crystals -->
+    <!-- Crystal images with hover effect -->
     <div class="crystals">
         <!-- image 1 -->
-        <div>
-        <img id="crystal1" src="assets/images/c1.jpg">
+        <div id="img1">
+        
         </div> 
 
         <!-- image 2 -->
-        <div>
-        <img id="crystal2" src="assets/images/c2.jpg">
+        <div id="img2">
+        
         </div>
 
         <!-- image 3 -->
-        <div>
-        <img id="crystal3" src="assets/images/c3.jpg">
+        <div id="img3">
+        
         </div>
 
         <!-- image 4 -->
-        <div>
-        <img id="crystal4" src="assets/images/c4.jpg">
+        <div id="img4">
+        
         </div>
     </div>
 
-    <!-- Score counter -->
+    <!-- Score counter will go here when game is in play -->
     <div class="score">
         <div class="game-score">
         <!-- Current score counter -->
         <p>
         <span id="current-score"></span>
         </p>
-        <!-- Win or Lose image display -->
+
+        <!-- The game result will display here - a specific image and message will appear based on a win or a loss -->
         <p>
-        <span id="win-loss-image"></span>
+        <span id="gameResult"></span>
         </p>
     </div>
 
-    <!-- win-loss counter -->
+    <!-- win-loss counter will display here when the game is in play -->
     <div class="win-loss">
         <!-- total wins counter -->
         <p>
