@@ -7,16 +7,8 @@ var targetNumber = 0;
 
 // Array for possible crystal image values
 var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-// Game result objects - a specific image and message will appear based on a win or loss
-var youWon = {
-        picture: "../images/crystalwin.jpg",
-        message: "The power of crystals were with you! YOU WIN!"
-};
-var youLost = {
-        picture: "../images/crystallose.jpg",
-        message: "Your crystal must be low on energy. Better luck next time!"
-    };
+// Generate random click value
+var clickValue = numberOptions[Math.floor(Math.random()*numberOptions.length)];
 
 // Game counters - current score, total wins, and total losses
 var counter = 0;
@@ -34,7 +26,7 @@ $("#number-played", "#current-score", "#gameResult", "#winCount", "#lossCount").
 //=========================================================
 
 // Start Game
-$("#start").on("click", function() {
+$(".start").on("click", function() {
 if (isGameStarted) {
     // Alert user that game is in play
     alert("Game is already in play! Click on a crystal to continue!");
@@ -42,21 +34,21 @@ if (isGameStarted) {
 else {
     // Set boolean to true
     isGameStarted = true;
+    // Reset counter
+    counter = 0;
     // Generate random number
     targetNumber = Math.floor(Math.random() * 120) + 19;
 
     // Populate game content
-    $("#number-played").text("Your number is: " + targetNumber);
-    $("#current-score").text("Current score: " + counter);
-    $("#wins").text("Total wins: " + wins);
-    $("#losses").text("Total losses: " + losses);
+    console.log("Your number is: " + targetNumber);
+    console.log("Current score: " + counter);
+    console.log("Total wins: " + wins);
+    console.log("Total losses: " + losses);
     }
 });
 
 // Game logic
 $(".crystal-image").on("click", function() {
-    // Generate random click value
-    var clickValue = numberOptions[Math.floor(Math.random()*numberOptions.length)];
 
     // Generate click value attribute called imgValue to crystal images using a For Loop
     for (var i = 0; i < 5; i++) {
@@ -70,10 +62,16 @@ $(".crystal-image").on("click", function() {
     crystalValue = parseInt(crystalValue);
     // Add value to counter
     counter += crystalValue;
+
+    // Win-loss logic - display appropriate image and message and increment win or loss by 1
+    if (counter === targetNumber) {
+        $("#gameResult").html("<img src=../images/crystalwin.jpg> <br> The power of crystals were with you! YOU WIN!");
+        wins++;
+    }
+    else if (counter >= targetNumber) {
+        $("#gameResult").html("<img src=../images/crystallose.jpg> <br> Your crystal must be low on energy. Better luck next time!");
+        losses++;
+    }
 });
-
-
-
-
 });
 
