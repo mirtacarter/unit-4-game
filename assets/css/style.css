@@ -157,6 +157,11 @@ img:hover {
     padding: 20px;
     }
 
+#gameResult {
+    display: inline-block;
+    padding: 20px;
+    }
+
 .losses {
     margin-top: 20px;
 }
