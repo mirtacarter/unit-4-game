@@ -30,17 +30,20 @@ body {
 
 .gameheading {
     background-color: white;
-    padding: 10px;
     margin: 10px auto;
     text-align: center;
-    width: 40%;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    font-size: 24px;
+    text-transform: uppercase;
+    justify-content: space-around;
 }
 
 h2 {
-    padding: 5px;
     text-align: center;
     background-color: white;
-    font-size: 24px;
+    font-size: 20px;
     text-transform: uppercase;
     text-shadow: 1px 2px gray;
     opacity: 0.6;
@@ -50,8 +53,6 @@ h2 {
 .dropdown-container {
     position: relative;
     display: inline-block;
-    margin-left: 25%;
-    margin-right: 25%;
     padding: 20px;
     }
 
@@ -60,6 +61,7 @@ h2 {
     position: absolute;
     text-align: left;
     min-width: 200px;
+    font-size: 14px;
     background-color: whitesmoke;
     color: darkslategray;
     line-height: 1.5;
@@ -76,11 +78,24 @@ ul {
     list-style-type: none;
 }
 
-.crystals{
+.start-button {
+    text-align: center;
+    background-color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+    padding: 15px;
+    border: 1px solid lightgray;
+    text-shadow: 1px 2px gray;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+.crystals {
     background-color: white;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 25px 0px 25px 40px;
+    margin: 10px auto;
 }
 
 #crystal1,
@@ -96,3 +111,26 @@ img:hover {
     opacity: 0.5;
     filter: alpha(opacity=50);
 }
+
+.score {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-shadow: 1px 2px gray;
+    justify-content: space-around;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+.game-score {
+    display: inline-block;
+    align-self: center;
+}
+
+.win-loss {
+    display: inline-block;
+    }
