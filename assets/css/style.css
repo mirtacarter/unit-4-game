@@ -93,6 +93,24 @@ ul {
     background-color: lightsteelblue;
     }
 
+.random-number-bar {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-shadow: 1px 2px gray;
+    justify-content: space-around;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+ }
+
+ .number {
+     display: inline-block;
+ }
+
 .crystals {
     background-color: white;
     display: flex;

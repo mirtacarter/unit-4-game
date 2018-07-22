@@ -26,8 +26,8 @@
         <div class="dropdown">
         <ul>
             <li>Click the start button to generate a random number.</li>
-            <li>Click on any of the images below to start tallying to your counter.</li>
-            <li>Clicking any images will add points to your counter.</li>
+            <li>Click on any of the images below to start tallying points to your counter.</li>
+            <li>Each click will add a random number of points to your score.</li>
             <li>If your score equals the number, you win!</li>
             <li>If your score goes over the number, you lose.</li>
         </ul>
@@ -42,7 +42,9 @@
 
     <!-- Random number display -->
     <div class="random-number-bar">
-        <span id="random-number"> </span>
+        <div class="number">
+        <span id="number-played"> </span>
+        </div>
     </div>
 
     <!-- Images of crystals -->
@@ -73,7 +75,7 @@
         <div class="game-score">
         <!-- Current score counter -->
         <p>
-        Current Score: <span id="current-score"></span>
+        <span id="current-score"></span>
         </p>
         <!-- Win or Lose image display -->
         <p>
@@ -85,12 +87,12 @@
     <div class="win-loss">
         <!-- total wins counter -->
         <p>
-        Wins:<span id="wins"></span>
+       <span id="wins"></span>
         </p>
 
         <!-- total losses counter -->
         <p class="losses">
-        Losses:<span id="losses"></span>
+        <span id="losses"></span>
         </p>
     </div>
     </div>
