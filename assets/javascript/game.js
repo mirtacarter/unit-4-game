@@ -50,9 +50,9 @@ $(document).ready(function() {
           $("#current-score").text("Current score: " + counter);
          });
         
+        
     // Win-loss logic - display appropriate image and message and increment win or loss by 1
-  
-        if (counter === targetNumber) {
+    if (counter === targetNumber) {
             $("#gameResult").html("<img src=assets/images/crystalwin.jpg> <br> The power of crystals were with you! YOU WIN!");
             wins++;
             startGame();
@@ -64,6 +64,8 @@ $(document).ready(function() {
         }
     }
 
+    
+
 
     // Main Game Process
     //=========================================================
@@ -71,8 +73,9 @@ $(document).ready(function() {
     $(".start").on("click", function () {
         startGame();
         inPlay();
-    
       });      
+
+
       
       // Current score array
     var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
