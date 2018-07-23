@@ -22,10 +22,10 @@ $(document).ready(function() {
     //=========================================================
 
     // Start Game
-    function startGame() {
+   function startGame () {
         if (isGameStarted) {
             // Alert user that game is in play
-            alert("Game is already in play! Click on a crystal to continue!");
+            alert("Click on a crystal to continue!");
             } 
         else  {
             // Set boolean to true
@@ -39,52 +39,62 @@ $(document).ready(function() {
             $("#number-played").text("Your number is: " + targetNumber);
             $("#winCount").text("wins: " + wins);
             $("#lossCount").text("losses: " + losses);
-            
-  
+            $("#current-score").text("Current score: " + counter);
+        }}
+
+    function clickStart () {
         $(".crystal-image").on("click", function() {
             var clickValue = numberOptions[Math.floor(Math.random() * numberOptions.length)];
                 counter += parseInt(clickValue);
               $("#current-score").text("Current score: " + counter);
-            
-              
-            if (counter === targetNumber) {
+
+                if (counter === targetNumber) {
                 console.log("you win");
-                $("<span>The power of crystals were with you! YOU WIN!</span>").appendTo(".gameText");
-                $("<img src=assets/images/crystalwin.jpg>").appendTo(".gameImg");
                 wins += 1;
-                roundOver();
+                $("<span>You win</span>").appendTo(".gameText");
+                $("<img src=assets/images/crystalwin.jpg>").appendTo(".gameImg");    
+                $("#winCount").html("wins: " + wins);
+                gameReset();
                 }
                 
-            else if (counter > targetNumber) {
+            if (counter > targetNumber) {
                 console.log("you lose");
-                $("<span>Your crystal must be low on energy. Better luck next time!</span>").appendTo(".gameText");
-                $("<img src=assets/images/crystallose.jpg>").appendTo(".gameImg");
                 losses += 1;
-                roundOver();
+                $("<span>You lose</span>").appendTo(".gameText");
+                $("<img src=assets/images/crystallose.jpg>").appendTo(".gameImg");
+                $("#lossCount").html("losses: " + losses);
+                gameReset();
                 }
             });
-    }
-    }
-
+        }              
+            
+         
     // Main Game Process
     //=========================================================
 
 
     $(".start").on("click", function () {
         startGame();
-    
+        clickStart();
+
     });
 
-   
-    function roundOver() {
+    function gameReset () {
+        isGameStarted = false;
+        counter = 0;
+        clickStart();
+        console.log("this is the counter: " + counter);
         $(".gameImg").click(function() {
-            $(this).hide();
-            $(".gameText").hide();
-            isGameStarted = false;
-            startGame();
+            $(this).remove();
+            $(".gameText").remove();
+            $("#current-score").text("Click start to play again");
+            
+            
         });
+        
     }
-
+            
+    
 
     // Current score array
     var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
