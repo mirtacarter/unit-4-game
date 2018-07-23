@@ -7,11 +7,12 @@ $(document).ready(function() {
 
     // Game counters - current score, total wins, and total losses
     var counter = 0;
+    var clickValue = 0;
     var wins = 0;
     var losses = 0;
 
     // Check to make sure game is not yet in play
-    var isGameStarted = false;
+    isGameStarted = false;
    
 
     // Default content containers to empty
@@ -23,33 +24,37 @@ $(document).ready(function() {
 
     // Start Game
    function startGame () {
-        if (isGameStarted) {
-            // Alert user that game is in play
-            alert("Click on a crystal to continue!");
-            } 
-        else  {
             // Set boolean to true
             isGameStarted = true;
             // Reset counter
             counter = 0;
+            // Reset clickvalue
+            clickValue = 0
             // Generate random number
-            targetNumber = Math.floor(Math.random() * 120) + 19;
+            targetNumber = Math.floor(Math.random() * (121 - 19)) + 19;
 
             // Populate game content
             $("#number-played").text("Your number is: " + targetNumber);
             $("#winCount").text("wins: " + wins);
             $("#lossCount").text("losses: " + losses);
             $("#current-score").text("Current score: " + counter);
-        }}
+
+             $(".start").hide();
+             clickStart();
+        }
 
     function clickStart () {
+ 
         $(".crystal-image").on("click", function() {
-            var clickValue = numberOptions[Math.floor(Math.random() * numberOptions.length)];
-                counter += parseInt(clickValue);
+            clickValue = Math.floor(Math.random() * (13 - 1) + 1);
+                console.log("this is the clickvalue " + clickValue);
+                console.log("this is the counter " +counter);
+                console.log(counter += parseInt(clickValue));
               $("#current-score").text("Current score: " + counter);
 
                 if (counter === targetNumber) {
-                console.log("you win");
+                $(".crystal-image").off("click");
+                console.log("youwin");
                 wins += 1;
                 $("<span>You win</span>").appendTo(".gameText");
                 $("<img src=assets/images/crystalwin.jpg>").appendTo(".gameImg");    
@@ -58,7 +63,8 @@ $(document).ready(function() {
                 }
                 
             if (counter > targetNumber) {
-                console.log("you lose");
+                $(".crystal-image").off("click");
+                console.log("you lose")
                 losses += 1;
                 $("<span>You lose</span>").appendTo(".gameText");
                 $("<img src=assets/images/crystallose.jpg>").appendTo(".gameImg");
@@ -66,38 +72,28 @@ $(document).ready(function() {
                 gameReset();
                 }
             });
-        }              
-            
-         
-    // Main Game Process
-    //=========================================================
+            }
 
+         
+    // Start and reset game
+    //=========================================================
 
     $(".start").on("click", function () {
         startGame();
-        clickStart();
-
     });
 
     function gameReset () {
-        isGameStarted = false;
         counter = 0;
-        clickStart();
-        console.log("this is the counter: " + counter);
+        clickValue = 0;
+        $("#current-score").text("Click on Spencer's crystal to play again");
+     
         $(".gameImg").click(function() {
-            $(this).remove();
-            $(".gameText").remove();
-            $("#current-score").text("Click start to play again");
-            
+            $(this).empty();
+            $(".gameText").empty();
+            startGame();           
             
         });
         
     }
             
-    
-
-    // Current score array
-    var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-
 });
