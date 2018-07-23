@@ -46,6 +46,7 @@ $(document).ready(function() {
                 counter += parseInt(clickValue);
               $("#current-score").text("Current score: " + counter);
             
+              
             if (counter === targetNumber) {
                 console.log("you win");
                 $("<span>The power of crystals were with you! YOU WIN!</span>").appendTo(".gameText");
@@ -80,8 +81,10 @@ $(document).ready(function() {
             $(this).hide();
             $(".gameText").hide();
             isGameStarted = false;
+            startGame();
         });
     }
+
 
     // Current score array
     var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
