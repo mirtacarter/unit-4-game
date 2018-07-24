@@ -13,6 +13,7 @@ Crystal Collector is an interactive guessing game, built using HTML, CSS, JavaSc
 * If the player's score exceeds the number in play, the round is lost
 * If the player's score equals the number in play, the round is won
 * The player can play as many rounds as they wish
+
     **Play the game here: https://github.com/mirtacarter/unit-4-game
 
 
